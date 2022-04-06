@@ -10,10 +10,10 @@
 см. файл  Chinook_Sqlite.sqlite в разделе Данные под описанием задачи.
 */
 
-select t.TrackId, sum(round(i.Total / t.UnitPrice, 0)) sum
+select t.TrackId, sum(il.Quantity) sum
 from Track t
 join InvoiceLine il on t.TrackId = il.TrackId
 join Invoice i on i.InvoiceId = il.InvoiceId
-where strftime('%Y', i.InvoiceDate) like '201%'
+where i.InvoiceDate >= '2010-01-01 00:00:00'
 group by t.TrackId
-order by t.TrackId asc, sum desc;
+order by t.TrackId, sum desc;
