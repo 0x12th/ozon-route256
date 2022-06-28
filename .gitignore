@@ -147,6 +147,3 @@ cython_debug/
 
 # PyCharm
 .idea/
-
-# Sandbox
-sandbox-tasks/
